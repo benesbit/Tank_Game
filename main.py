@@ -24,7 +24,8 @@ while not CRASHED:
     pygame.display.update()
     CLOCK.tick(60)
 
-
+pygame.quit()
+quit()
 
 # # Define a main function
 # def main():
