@@ -1,5 +1,8 @@
 # Tank Game
 
+This is a work in progress. I will push significant updates to master, but it is by no
+means complete.
+
 # Installation
 Install information for <strong>pygame</strong> from https://www.pygame.org/wiki/GettingStarted
 
