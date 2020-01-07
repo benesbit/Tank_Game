@@ -1,7 +1,7 @@
 # Tank_Game
 
 # Installation
-Install information for <pygame> from https://www.pygame.org/wiki/GettingStarted
+Install information for <strong>pygame</strong> from https://www.pygame.org/wiki/GettingStarted
 
 Pygame Installation
 Pygame requires Python; if you don't already have it, you can download it from python.org. Use python 3.6.1 or greater, because it is much friendlier to newbies, and additionally runs faster.
@@ -18,7 +18,7 @@ If it works, you are ready to go!
 
 
 # Running
-Running information for <pygame> from https://artofproblemsolving.com/wiki/index.php/How_to_run_Pygame_Programs
+Running information for <strong>pygame</strong> from https://artofproblemsolving.com/wiki/index.php/How_to_run_Pygame_Programs
 
 Ubuntu/Linux
 1. Open a terminal. (Gnome: Applications->Accessories->Terminal. Unity (Ubuntu 11.04): Applications ->Type 'terminal' in the search box -> Double click on the terminal application icon.)
