@@ -11,6 +11,19 @@ pygame.display.set_caption('Tank Game')
 
 CLOCK = pygame.time.Clock()
 
+CRASHED = False
+
+while not CRASHED:
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            CRASHED = True
+        
+        print(event)
+    
+    pygame.display.update()
+    CLOCK.tick(60)
+
 
 
 # # Define a main function
