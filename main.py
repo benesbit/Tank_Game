@@ -9,22 +9,22 @@ pygame.init()
 DISPLAY_WIDTH = 1050
 DISPLAY_HEIGHT = 620
 
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+
 TANK_WIDTH = 45
 TANK_HEIGHT = 50
 
 GAME_DISPLAY = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
 pygame.display.set_caption('Tank Game')
-
-BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
-
 CLOCK = pygame.time.Clock()
-
-GAME_EXIT = False
 
 TANK_IMAGE_PLAYER_ONE = \
     pygame.transform.scale(pygame.image.load('images/tank_player_one.png'), \
         (TANK_WIDTH, TANK_HEIGHT))
+
+GAME_EXIT = False
 
 def tank(x_location, y_location):
     GAME_DISPLAY.blit(TANK_IMAGE_PLAYER_ONE, (x_location, y_location))
