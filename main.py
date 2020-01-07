@@ -6,7 +6,10 @@ import pygame
 # Initialize pygame module
 pygame.init()
 
-GAME_DISPLAY = pygame.display.set_mode((800, 600))
+DISPLAY_WIDTH = 800
+DISPLAY_HEIGHT = 600
+
+GAME_DISPLAY = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
 pygame.display.set_caption('Tank Game')
 
 CLOCK = pygame.time.Clock()
