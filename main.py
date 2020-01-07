@@ -31,12 +31,31 @@ def car(x_location, y_location):
 
 X = (DISPLAY_WIDTH * 0.45)
 Y = (DISPLAY_HEIGHT * 0.8)
+X_CHANGE = 0
+TANK_SPEED_PLAYER_ONE = 0
 
 while not CRASHED:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             CRASHED = True
             print(event)
+        
+        #############################
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                X_CHANGE = -5
+                if X_CHANGE < -20:
+                    X_CHANGE = -20
+            elif event.key == pygame.K_RIGHT:
+                X_CHANGE = 5
+                if X_CHANGE > 20:
+                    X_CHANGE = 20
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                X_CHANGE = 0
+        ##############################
+    ##
+    X += X_CHANGE
     
     GAME_DISPLAY.fill(WHITE)
     car(X, Y)
