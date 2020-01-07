@@ -28,12 +28,13 @@ X = (DISPLAY_WIDTH * 0.45)
 Y = (DISPLAY_HEIGHT * 0.8)
 
 while not CRASHED:
-
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             CRASHED = True
-        
-        print(event)
+            print(event)
+    
+    GAME_DISPLAY.fill(WHITE)
+    car(X, Y)
     
     pygame.display.update()
     CLOCK.tick(60)
