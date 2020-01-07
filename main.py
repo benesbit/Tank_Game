@@ -24,7 +24,7 @@ TANK_IMAGE_PLAYER_ONE = \
     pygame.transform.scale(pygame.image.load('images/tank_player_one.png'), \
         (TANK_WIDTH, TANK_HEIGHT))
 
-def tank(x_location, y_location):
+def draw_tank(x_location, y_location):
     GAME_DISPLAY.blit(TANK_IMAGE_PLAYER_ONE, (x_location, y_location))
 
 def text_objects(text, font):
@@ -74,7 +74,7 @@ def game_loop():
         x += x_change
         
         GAME_DISPLAY.fill(WHITE)
-        tank(x, y)
+        draw_tank(x, y)
 
         if x > DISPLAY_WIDTH - TANK_WIDTH or x < 0:
             tank_crash()
