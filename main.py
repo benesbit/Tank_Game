@@ -19,7 +19,7 @@ CLOCK = pygame.time.Clock()
 
 CRASHED = False
 
-CAR_IMG = pygame.image.load('racecar.png')
+CAR_IMG = pygame.image.load('images/tank_player_one.png')
 
 def car(x_location, y_location):
     GAME_DISPLAY.blit(CAR_IMG, (x_location, y_location))
