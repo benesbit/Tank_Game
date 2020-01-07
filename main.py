@@ -6,8 +6,8 @@ import pygame
 # Initialize pygame module
 pygame.init()
 
-DISPLAY_WIDTH = 1024
-DISPLAY_HEIGHT = 800
+DISPLAY_WIDTH = 1050
+DISPLAY_HEIGHT = 620
 
 GAME_DISPLAY = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
 pygame.display.set_caption('Tank Game')
