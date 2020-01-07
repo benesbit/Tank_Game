@@ -1,4 +1,4 @@
-# Tank_Game
+# Tank Game
 
 # Installation
 Install information for <strong>pygame</strong> from https://www.pygame.org/wiki/GettingStarted
