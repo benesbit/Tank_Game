@@ -24,8 +24,6 @@ TANK_IMAGE_PLAYER_ONE = \
     pygame.transform.scale(pygame.image.load('images/tank_player_one.png'), \
         (TANK_WIDTH, TANK_HEIGHT))
 
-GAME_EXIT = False
-
 def tank(x_location, y_location):
     GAME_DISPLAY.blit(TANK_IMAGE_PLAYER_ONE, (x_location, y_location))
 
@@ -43,47 +41,51 @@ def message_display(text):
 
     time.sleep(2)
 
-    game_loop
+    game_loop()
 
 def tank_crash():
     message_display('You Crashed!')
 
-X = (DISPLAY_WIDTH * 0.45)
-Y = (DISPLAY_HEIGHT * 0.8)
-X_CHANGE = 0
-TANK_SPEED_PLAYER_ONE = 0
+def game_loop():
+    x = (DISPLAY_WIDTH * 0.45)
+    y = (DISPLAY_HEIGHT * 0.8)
 
-while not GAME_EXIT:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            GAME_EXIT = True
-            print(event)
+    x_change = 0
+    
+    game_exit = False
+
+    while not game_exit:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                print(event)
+                pygame.quit()
+                quit()
+            
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    x_change = -5
+                elif event.key == pygame.K_RIGHT:
+                    x_change = 5
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                    x_change = 0
+
+        x += x_change
         
-        #############################
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
-                X_CHANGE = -5
-            elif event.key == pygame.K_RIGHT:
-                X_CHANGE = 5
-        if event.type == pygame.KEYUP:
-            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
-                X_CHANGE = 0
-        ##############################
+        GAME_DISPLAY.fill(WHITE)
+        tank(x, y)
 
-    X += X_CHANGE
-    
-    GAME_DISPLAY.fill(WHITE)
-    tank(X, Y)
+        if x > DISPLAY_WIDTH - TANK_WIDTH or x < 0:
+            tank_crash()
+        # if X > DISPLAY_WIDTH - TANK_WIDTH:
+        #     X = DISPLAY_WIDTH - TANK_WIDTH
+        # elif X < 0:
+        #     X = 0
+        
+        pygame.display.update()
+        CLOCK.tick(60)
 
-    if X > DISPLAY_WIDTH - TANK_WIDTH or X < 0:
-        GAME_EXIT = True
-    # if X > DISPLAY_WIDTH - TANK_WIDTH:
-    #     X = DISPLAY_WIDTH - TANK_WIDTH
-    # elif X < 0:
-    #     X = 0
-    
-    pygame.display.update()
-    CLOCK.tick(60)
-
+game_loop()
 pygame.quit()
 quit()
