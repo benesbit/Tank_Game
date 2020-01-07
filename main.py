@@ -20,13 +20,13 @@ WHITE = (255, 255, 255)
 
 CLOCK = pygame.time.Clock()
 
-CRASHED = False
+GAME_EXIT = False
 
 TANK_IMAGE_PLAYER_ONE = \
     pygame.transform.scale(pygame.image.load('images/tank_player_one.png'), \
         (TANK_WIDTH, TANK_HEIGHT))
 
-def car(x_location, y_location):
+def tank(x_location, y_location):
     GAME_DISPLAY.blit(TANK_IMAGE_PLAYER_ONE, (x_location, y_location))
 
 X = (DISPLAY_WIDTH * 0.45)
@@ -34,10 +34,10 @@ Y = (DISPLAY_HEIGHT * 0.8)
 X_CHANGE = 0
 TANK_SPEED_PLAYER_ONE = 0
 
-while not CRASHED:
+while not GAME_EXIT:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            CRASHED = True
+            GAME_EXIT = True
             print(event)
         
         #############################
@@ -54,7 +54,12 @@ while not CRASHED:
     X += X_CHANGE
     
     GAME_DISPLAY.fill(WHITE)
-    car(X, Y)
+    tank(X, Y)
+
+    if X > DISPLAY_WIDTH - TANK_WIDTH:
+        X = DISPLAY_WIDTH - TANK_WIDTH
+    elif X < 0:
+        X = 0
     
     pygame.display.update()
     CLOCK.tick(60)
