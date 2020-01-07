@@ -56,10 +56,12 @@ while not GAME_EXIT:
     GAME_DISPLAY.fill(WHITE)
     tank(X, Y)
 
-    if X > DISPLAY_WIDTH - TANK_WIDTH:
-        X = DISPLAY_WIDTH - TANK_WIDTH
-    elif X < 0:
-        X = 0
+    if X > DISPLAY_WIDTH - TANK_WIDTH or X < 0:
+        GAME_EXIT = True
+    # if X > DISPLAY_WIDTH - TANK_WIDTH:
+    #     X = DISPLAY_WIDTH - TANK_WIDTH
+    # elif X < 0:
+    #     X = 0
     
     pygame.display.update()
     CLOCK.tick(60)
