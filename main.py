@@ -29,6 +29,25 @@ GAME_EXIT = False
 def tank(x_location, y_location):
     GAME_DISPLAY.blit(TANK_IMAGE_PLAYER_ONE, (x_location, y_location))
 
+def text_objects(text, font):
+    textSurface = font.render(text, True, BLACK)
+    return textSurface, textSurface.get_rect()
+
+def message_display(text):
+    largeText = pygame.font.Font('freesansbold.ttf', 115)
+    TextSurf, TextRect = text_objects(text, largeText)
+    TextRect.center = ((DISPLAY_WIDTH / 2), (DISPLAY_HEIGHT / 2))
+    GAME_DISPLAY.blit(TextSurf, TextRect)
+
+    pygame.display.update()
+
+    time.sleep(2)
+
+    game_loop
+
+def tank_crash():
+    message_display('You Crashed!')
+
 X = (DISPLAY_WIDTH * 0.45)
 Y = (DISPLAY_HEIGHT * 0.8)
 X_CHANGE = 0
