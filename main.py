@@ -16,7 +16,16 @@ BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 
 CLOCK = pygame.time.Clock()
+
 CRASHED = False
+
+CAR_IMG = pygame.image.load('racecar.png')
+
+def car(x_location, y_location):
+    GAME_DISPLAY.blit(CAR_IMG, (x_location, y_location))
+
+X = (DISPLAY_WIDTH * 0.45)
+Y = (DISPLAY_HEIGHT * 0.8)
 
 while not CRASHED:
 
