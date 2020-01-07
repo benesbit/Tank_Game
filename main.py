@@ -50,6 +50,7 @@ while not CRASHED:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 X_CHANGE = 0
         ##############################
+
     X += X_CHANGE
     
     GAME_DISPLAY.fill(WHITE)
