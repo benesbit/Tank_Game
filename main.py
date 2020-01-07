@@ -44,12 +44,8 @@ while not CRASHED:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 X_CHANGE = -5
-                if X_CHANGE < -20:
-                    X_CHANGE = -20
             elif event.key == pygame.K_RIGHT:
                 X_CHANGE = 5
-                if X_CHANGE > 20:
-                    X_CHANGE = 20
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 X_CHANGE = 0
