@@ -1,5 +1,5 @@
-# main.py
 # Ben Nesbit
+# main.py
 # Simple "tank game"
 
 # Import pygame module
