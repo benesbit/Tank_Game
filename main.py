@@ -42,10 +42,9 @@ def message_display(text):
 
     time.sleep(2)
 
-    game_loop()
-
 def tank_crash():
     message_display('You Crashed!')
+    game_loop()
 
 def game_loop():
     x = (DISPLAY_WIDTH * 0.45)
