@@ -43,12 +43,12 @@ def message_display(text):
     time.sleep(2)
 
 def tank_crash():
-    message_display('You Crashed!')
+    # message_display('You Crashed!')
     game_loop()
 
 def game_loop():
-    x = (DISPLAY_WIDTH * 0.45)
-    y = (DISPLAY_HEIGHT * 0.8)
+    x_position = (DISPLAY_WIDTH * 0.45)
+    y_position = (DISPLAY_HEIGHT * 0.8)
 
     x_change = 0
     
@@ -71,12 +71,12 @@ def game_loop():
                 if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                     x_change = 0
 
-        x += x_change
+        x_position += x_change
         
         GAME_DISPLAY.fill(WHITE)
-        draw_tank(x, y)
+        draw_tank(x_position, y_position)
 
-        if x > DISPLAY_WIDTH - TANK_WIDTH or x < 0:
+        if x_position > DISPLAY_WIDTH - TANK_WIDTH or x_position < 0:
             tank_crash()
         # if X > DISPLAY_WIDTH - TANK_WIDTH:
         #     X = DISPLAY_WIDTH - TANK_WIDTH
