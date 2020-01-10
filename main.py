@@ -31,8 +31,8 @@ def draw_tank(x_location, y_location):
     GAME_DISPLAY.blit(TANK_IMAGE_PLAYER_ONE, (x_location, y_location))
 
 def text_objects(text, font):
-    textSurface = font.render(text, True, BLACK)
-    return textSurface, textSurface.get_rect()
+    text_surface = font.render(text, True, BLACK)
+    return text_surface, text_surface.get_rect()
 
 def message_display(text):
     largeText = pygame.font.Font('freesansbold.ttf', 115)
