@@ -3,6 +3,7 @@
 
 # Import pygame module
 import time
+import random
 import pygame
 
 # Initialize pygame module
