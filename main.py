@@ -3,6 +3,7 @@
 
 # Import pygame module
 import pygame
+import time
 
 # Initialize pygame module
 pygame.init()
@@ -43,7 +44,8 @@ def message_display(text):
     time.sleep(2)
 
 def tank_crash():
-    # message_display('You Crashed!')
+    message_display('You Crashed!')
+    # time.sleep(2)
     game_loop()
 
 def game_loop():
