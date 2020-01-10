@@ -2,8 +2,8 @@
 # Simple "tank game"
 
 # Import pygame module
-import pygame
 import time
+import pygame
 
 # Initialize pygame module
 pygame.init()
