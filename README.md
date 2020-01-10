@@ -8,7 +8,7 @@ something like "pygame has no member init." This is a lie, the member exists. If
 the case, then "settings.json" in the ".vscode" folder needs to be updated.
 
 ```
-        "python.linting.pylintArgs": [
+    "python.linting.pylintArgs": [
         "--extension-pkg-whitelist=pygame" // comma separated
     ]
 ```
