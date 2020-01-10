@@ -1,4 +1,5 @@
 # Ben Nesbit
+# Simple "tank game"
 
 # Import pygame module
 import pygame
