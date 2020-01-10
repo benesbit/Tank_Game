@@ -45,7 +45,6 @@ def message_display(text):
 
 def tank_crash():
     message_display('You Crashed!')
-    # time.sleep(2)
     game_loop()
 
 def game_loop():
