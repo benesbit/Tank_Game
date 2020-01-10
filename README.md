@@ -3,6 +3,9 @@
 This is a work in progress. I will push significant updates to master, but it is by no
 means complete.
 
+Small note: when viewing the code, your linter might freak out regarding pygame. It may say 
+something like "pygame has no member init." This is a lie, the member exists.
+
 # Installation
 Install information for <strong>pygame</strong> from https://www.pygame.org/wiki/GettingStarted
 
