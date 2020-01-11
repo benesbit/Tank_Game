@@ -58,8 +58,8 @@ def game_loop():
 
     x_change = 0
 
-    block_start_x_location = random.randrange(0, DISPLAY_WIDTH)
-    block_start_y_location = -600
+    block_x_location = random.randrange(0, DISPLAY_WIDTH)
+    block_y_location = -600
     block_speed = 7
     block_width = 100
     block_height = 100
@@ -84,12 +84,12 @@ def game_loop():
                     x_change = 0
 
         x_location += x_change
-        block_start_y_location += block_speed
+        block_y_location += block_speed
         
         GAME_DISPLAY.fill(WHITE)
 
         draw_tank(x_location, y_location)
-        draw_block(block_start_x_location, block_start_y_location, block_width, block_height, BLACK)
+        draw_block(block_x_location, block_y_location, block_width, block_height, BLACK)
 
         if x_location > DISPLAY_WIDTH - TANK_WIDTH or x_location < 0:
             tank_crash()
@@ -98,9 +98,16 @@ def game_loop():
         # elif X < 0:
         #     X = 0
 
-        if block_start_y_location > DISPLAY_HEIGHT:
-            block_start_y_location = 0 - block_height
-            block_start_x_location = random.randrange(0, DISPLAY_WIDTH)
+        if block_y_location > DISPLAY_HEIGHT:
+            block_y_location = 0 - block_height
+            block_x_location = random.randrange(0, DISPLAY_WIDTH)
+
+        if y_location < block_y_location + block_height:
+            print('y crossover')
+
+            if x_location > block_x_location and x_location < block_x_location + block_width or x_location + TANK_WIDTH > block_x_location and x_location + TANK_WIDTH < block_x_location+block_width:
+                print('x crossover')
+                tank_crash()
         
         pygame.display.update()
         CLOCK.tick(60)
