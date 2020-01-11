@@ -15,7 +15,11 @@ the case, then "settings.json" in the ".vscode" folder needs to be updated.
 This whitelists the pygame extension, removing the linting error.
 (Information via https://stackoverflow.com/questions/50569453/why-does-it-say-that-module-pygame-has-no-init-member)
 
-# Installation
+## Controls
+
+Arrow keys to move left and right. Avoid the blocks!
+
+## Installation
 Install information for <strong>pygame</strong> from https://www.pygame.org/wiki/GettingStarted
 
 <p><strong>Pygame Installation</strong></p>
@@ -32,7 +36,7 @@ To see if it works, run one of the included examples:
 If it works, you are ready to go!
 
 
-# Running
+## Running
 Running information for <strong>pygame</strong> from https://artofproblemsolving.com/wiki/index.php/How_to_run_Pygame_Programs
 
 <strong>Ubuntu/Linux</strong>
