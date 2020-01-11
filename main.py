@@ -28,6 +28,9 @@ TANK_IMAGE_PLAYER_ONE = \
     pygame.transform.scale(pygame.image.load('images/tank_player_one.png'), \
         (TANK_WIDTH, TANK_HEIGHT))
 
+def draw_block(x_location, y_location, block_width, block_height, color):
+    pygame.draw.rect(GAME_DISPLAY, color, [x_location, y_location, block_width, block_height])
+
 def draw_tank(x_location, y_location):
     GAME_DISPLAY.blit(TANK_IMAGE_PLAYER_ONE, (x_location, y_location))
 
@@ -50,10 +53,16 @@ def tank_crash():
     game_loop()
 
 def game_loop():
-    x_position = (DISPLAY_WIDTH * 0.45)
-    y_position = (DISPLAY_HEIGHT * 0.8)
+    x_location = (DISPLAY_WIDTH * 0.45)
+    y_location = (DISPLAY_HEIGHT * 0.8)
 
     x_change = 0
+
+    block_start_x_location = random.randrange(0, DISPLAY_WIDTH)
+    block_start_y_location = -600
+    block_speed = 7
+    block_width = 100
+    block_height = 100
     
     game_exit = False
 
@@ -74,17 +83,24 @@ def game_loop():
                 if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                     x_change = 0
 
-        x_position += x_change
+        x_location += x_change
+        block_start_y_location += block_speed
         
         GAME_DISPLAY.fill(WHITE)
-        draw_tank(x_position, y_position)
 
-        if x_position > DISPLAY_WIDTH - TANK_WIDTH or x_position < 0:
+        draw_tank(x_location, y_location)
+        draw_block(block_start_x_location, block_start_y_location, block_width, block_height, BLACK)
+
+        if x_location > DISPLAY_WIDTH - TANK_WIDTH or x_location < 0:
             tank_crash()
         # if X > DISPLAY_WIDTH - TANK_WIDTH:
         #     X = DISPLAY_WIDTH - TANK_WIDTH
         # elif X < 0:
         #     X = 0
+
+        if block_start_y_location > DISPLAY_HEIGHT:
+            block_start_y_location = 0 - block_height
+            block_start_x_location = random.randrange(0, DISPLAY_WIDTH)
         
         pygame.display.update()
         CLOCK.tick(60)
