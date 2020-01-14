@@ -66,6 +66,7 @@ def draw_message_center_screen(text):
 
 def drop_bomb():
     GAME_DISPLAY.fill(RED)
+    pygame.display.update()
     time.sleep(0.25)
 
 def tank_crash():
