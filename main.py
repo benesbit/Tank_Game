@@ -93,10 +93,10 @@ def game_loop():
 
         if x_location > DISPLAY_WIDTH - TANK_WIDTH or x_location < 0:
             tank_crash()
-        # if X > DISPLAY_WIDTH - TANK_WIDTH:
-        #     X = DISPLAY_WIDTH - TANK_WIDTH
-        # elif X < 0:
-        #     X = 0
+            # if X > DISPLAY_WIDTH - TANK_WIDTH:
+            #     X = DISPLAY_WIDTH - TANK_WIDTH
+            # elif X < 0:
+            #     X = 0
 
         if block_y_location > DISPLAY_HEIGHT:
             block_y_location = 0 - block_height
