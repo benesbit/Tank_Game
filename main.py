@@ -47,6 +47,9 @@ def draw_block(x_location, y_location, block_width, block_height, color):
 def draw_tank(x_location, y_location):
     GAME_DISPLAY.blit(IMAGE_TANK_PLAYER_ONE, (x_location, y_location))
 
+def draw_power_up(x_location, y_location):
+    GAME_DISPLAY.blit(IMAGE_POWER_UP_BOMB, (x_location, y_location))
+
 def text_objects(text, font):
     text_surface = font.render(text, True, BLACK)
     return text_surface, text_surface.get_rect()
