@@ -28,6 +28,11 @@ TANK_IMAGE_PLAYER_ONE = \
     pygame.transform.scale(pygame.image.load('images/tank_player_one.png'), \
         (TANK_WIDTH, TANK_HEIGHT))
 
+def blocks_dodged(count):
+    font = pygame.font.SysFont(None, 25)
+    text = font.render("Dodged: " + str(count), True, BLACK)
+    GAME_DISPLAY.blit(text, (0,0))
+
 def draw_block(x_location, y_location, block_width, block_height, color):
     pygame.draw.rect(GAME_DISPLAY, color, [x_location, y_location, block_width, block_height])
 
@@ -63,6 +68,8 @@ def game_loop():
     block_speed = 7
     block_width = 100
     block_height = 100
+
+    dodged = 0
     
     game_exit = False
 
@@ -90,6 +97,7 @@ def game_loop():
 
         draw_tank(x_location, y_location)
         draw_block(block_x_location, block_y_location, block_width, block_height, BLACK)
+        blocks_dodged(dodged)
 
         if x_location > DISPLAY_WIDTH - TANK_WIDTH or x_location < 0:
             tank_crash()
@@ -101,6 +109,9 @@ def game_loop():
         if block_y_location > DISPLAY_HEIGHT:
             block_y_location = 0 - block_height
             block_x_location = random.randrange(0, DISPLAY_WIDTH)
+            dodged += 1
+            block_speed += 1
+            block_width += (dodged * 1.2)
 
         if y_location < block_y_location + block_height:
             print('y crossover')
