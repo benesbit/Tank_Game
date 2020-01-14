@@ -64,6 +64,10 @@ def draw_message_center_screen(text):
 
     time.sleep(2)
 
+def drop_bomb():
+    GAME_DISPLAY.fill(RED)
+    time.sleep(0.25)
+
 def tank_crash():
     draw_message_center_screen('You Crashed!')
     game_loop()
@@ -90,6 +94,10 @@ def game_loop():
                 print(event)
                 pygame.quit()
                 quit()
+            
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    drop_bomb()
             
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
