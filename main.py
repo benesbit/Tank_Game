@@ -23,9 +23,6 @@ TANK_WIDTH = 95
 TANK_HEIGHT = 100
 TANK_SPEED = 8
 
-POWER_UP_WIDTH = 55
-POWER_UP_HEIGHT = 100
-
 GAME_DISPLAY = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
 pygame.display.set_caption('Tank Game')
 CLOCK = pygame.time.Clock()
@@ -33,10 +30,6 @@ CLOCK = pygame.time.Clock()
 IMAGE_TANK_PLAYER_ONE = \
     pygame.transform.scale(pygame.image.load('images/tank_player_one.png'), \
         (TANK_WIDTH, TANK_HEIGHT))
-
-IMAGE_POWER_UP_BOMB = \
-    pygame.transform.scale(pygame.image.load('images/bomb_power_up.png'), \
-        (POWER_UP_WIDTH, POWER_UP_HEIGHT))
 
 def draw_score(count):
     font = pygame.font.SysFont(None, 25)
