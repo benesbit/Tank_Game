@@ -28,9 +28,13 @@ GAME_DISPLAY = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
 pygame.display.set_caption('Tank Game')
 CLOCK = pygame.time.Clock()
 
-TANK_IMAGE_PLAYER_ONE = \
+IMAGE_TANK_PLAYER_ONE = \
     pygame.transform.scale(pygame.image.load('images/tank_player_one.png'), \
         (TANK_WIDTH, TANK_HEIGHT))
+
+IMAGE_POWER_UP_BOMB = \
+    pygame.transform.scale(pygame.image.load('images/bomb_power_up.png'), \
+        (POWER_UP_WIDTH, POWER_UP_HEIGHT))
 
 def draw_score(count):
     font = pygame.font.SysFont(None, 25)
@@ -41,7 +45,7 @@ def draw_block(x_location, y_location, block_width, block_height, color):
     pygame.draw.rect(GAME_DISPLAY, color, [x_location, y_location, block_width, block_height])
 
 def draw_tank(x_location, y_location):
-    GAME_DISPLAY.blit(TANK_IMAGE_PLAYER_ONE, (x_location, y_location))
+    GAME_DISPLAY.blit(IMAGE_TANK_PLAYER_ONE, (x_location, y_location))
 
 def text_objects(text, font):
     text_surface = font.render(text, True, BLACK)
