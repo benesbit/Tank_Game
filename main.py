@@ -6,6 +6,8 @@
 import time
 import random
 import pygame
+import src.tank
+import src.power_up
 
 # Initialize pygame module
 pygame.init()
@@ -17,28 +19,42 @@ BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 
-TANK_WIDTH = 45
-TANK_HEIGHT = 50
+TANK_WIDTH = 95
+TANK_HEIGHT = 100
+TANK_SPEED = 8
+
+POWER_UP_WIDTH = 55
+POWER_UP_HEIGHT = 100
 
 GAME_DISPLAY = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
 pygame.display.set_caption('Tank Game')
 CLOCK = pygame.time.Clock()
 
-TANK_IMAGE_PLAYER_ONE = \
-    pygame.transform.scale(pygame.image.load('images/tank_player_one.png'), \
+IMAGE_TANK_PLAYER_ONE = pygame.transform.scale(pygame.image.load('src/images/tank_player_one.png'), \
         (TANK_WIDTH, TANK_HEIGHT))
+
+IMAGE_POWER_UP_BOMB = pygame.transform.scale(pygame.image.load('src/images/bomb_power_up.png'), \
+        (POWER_UP_WIDTH, POWER_UP_HEIGHT))
+
+def draw_score(count):
+    font = pygame.font.SysFont(None, 25)
+    text = font.render("Dodged: " + str(count), True, BLACK)
+    GAME_DISPLAY.blit(text, (0,0))
 
 def draw_block(x_location, y_location, block_width, block_height, color):
     pygame.draw.rect(GAME_DISPLAY, color, [x_location, y_location, block_width, block_height])
 
 def draw_tank(x_location, y_location):
-    GAME_DISPLAY.blit(TANK_IMAGE_PLAYER_ONE, (x_location, y_location))
+    GAME_DISPLAY.blit(IMAGE_TANK_PLAYER_ONE, (x_location, y_location))
+
+def draw_power_up(x_location, y_location):
+    GAME_DISPLAY.blit(IMAGE_POWER_UP_BOMB, (x_location, y_location))
 
 def text_objects(text, font):
     text_surface = font.render(text, True, BLACK)
     return text_surface, text_surface.get_rect()
 
-def message_display(text):
+def draw_message_center_screen(text):
     large_text = pygame.font.Font('freesansbold.ttf', 115)
     text_surf, text_rect = text_objects(text, large_text)
     text_rect.center = ((DISPLAY_WIDTH / 2), (DISPLAY_HEIGHT / 2))
@@ -48,8 +64,13 @@ def message_display(text):
 
     time.sleep(2)
 
+def drop_bomb():
+    GAME_DISPLAY.fill(RED)
+    pygame.display.update()
+    time.sleep(0.25)
+
 def tank_crash():
-    message_display('You Crashed!')
+    draw_message_center_screen('You Crashed!')
     game_loop()
 
 def game_loop():
@@ -63,6 +84,8 @@ def game_loop():
     block_speed = 7
     block_width = 100
     block_height = 100
+
+    dodged = 0
     
     game_exit = False
 
@@ -74,10 +97,14 @@ def game_loop():
                 quit()
             
             if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    drop_bomb()
+            
+            if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    x_change = -5
+                    x_change = -TANK_SPEED
                 elif event.key == pygame.K_RIGHT:
-                    x_change = 5
+                    x_change = TANK_SPEED
 
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
@@ -90,17 +117,21 @@ def game_loop():
 
         draw_tank(x_location, y_location)
         draw_block(block_x_location, block_y_location, block_width, block_height, BLACK)
+        draw_score(dodged)
 
         if x_location > DISPLAY_WIDTH - TANK_WIDTH or x_location < 0:
             tank_crash()
-        # if X > DISPLAY_WIDTH - TANK_WIDTH:
-        #     X = DISPLAY_WIDTH - TANK_WIDTH
-        # elif X < 0:
-        #     X = 0
+            # if X > DISPLAY_WIDTH - TANK_WIDTH:
+            #     X = DISPLAY_WIDTH - TANK_WIDTH
+            # elif X < 0:
+            #     X = 0
 
         if block_y_location > DISPLAY_HEIGHT:
             block_y_location = 0 - block_height
             block_x_location = random.randrange(0, DISPLAY_WIDTH)
+            dodged += 1
+            block_speed += 1
+            block_width += (dodged * 1.2)
 
         if y_location < block_y_location + block_height:
             print('y crossover')
