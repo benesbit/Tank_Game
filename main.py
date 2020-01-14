@@ -28,7 +28,7 @@ TANK_IMAGE_PLAYER_ONE = \
     pygame.transform.scale(pygame.image.load('images/tank_player_one.png'), \
         (TANK_WIDTH, TANK_HEIGHT))
 
-def blocks_dodged(count):
+def draw_score(count):
     font = pygame.font.SysFont(None, 25)
     text = font.render("Dodged: " + str(count), True, BLACK)
     GAME_DISPLAY.blit(text, (0,0))
@@ -43,7 +43,7 @@ def text_objects(text, font):
     text_surface = font.render(text, True, BLACK)
     return text_surface, text_surface.get_rect()
 
-def message_display(text):
+def draw_message_center_screen(text):
     large_text = pygame.font.Font('freesansbold.ttf', 115)
     text_surf, text_rect = text_objects(text, large_text)
     text_rect.center = ((DISPLAY_WIDTH / 2), (DISPLAY_HEIGHT / 2))
@@ -54,7 +54,7 @@ def message_display(text):
     time.sleep(2)
 
 def tank_crash():
-    message_display('You Crashed!')
+    draw_message_center_screen('You Crashed!')
     game_loop()
 
 def game_loop():
@@ -97,7 +97,7 @@ def game_loop():
 
         draw_tank(x_location, y_location)
         draw_block(block_x_location, block_y_location, block_width, block_height, BLACK)
-        blocks_dodged(dodged)
+        draw_score(dodged)
 
         if x_location > DISPLAY_WIDTH - TANK_WIDTH or x_location < 0:
             tank_crash()
