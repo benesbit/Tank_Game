@@ -31,6 +31,8 @@ IMAGE_TANK_PLAYER_ONE = \
     pygame.transform.scale(pygame.image.load('images/tank_player_one.png'), \
         (TANK_WIDTH, TANK_HEIGHT))
 
+IMAGE_POWER_UP_BOMB = src.power_up.get_image_power_up_bomb()
+
 def draw_score(count):
     font = pygame.font.SysFont(None, 25)
     text = font.render("Dodged: " + str(count), True, BLACK)
