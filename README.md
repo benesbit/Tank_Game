@@ -2,23 +2,21 @@
 
 ## Some Quick Notes
 
-<ul>
-    <li>This is a work in progress. I will push significant updates to master, but it is by no means complete.</li>
+This is a work in progress. I will push significant updates to master, but it is by no
+means complete.
 
-    <li>
-    When viewing the code, your linter might freak out regarding pygame. It may say 
-    something like "pygame has no member init." This is a lie, the member exists. If this is
-    the case, then "settings.json" in the ".vscode" folder needs to be updated.
+When viewing the code, your linter might freak out regarding pygame. It may say 
+something like "pygame has no member init." This is a lie, the member exists. If this is
+the case, then "settings.json" in the ".vscode" folder needs to be updated.
 
-    ```
-        "python.linting.pylintArgs": [
-            "--extension-pkg-whitelist=pygame" // comma separated
-        ]
-    ```
-    This whitelists the pygame extension, removing the linting error.
-    (Information via https://stackoverflow.com/questions/50569453/why-does-it-say-that-module-pygame-has-no-init-member)
-    </li>
-</ul>
+```
+    "python.linting.pylintArgs": [
+        "--extension-pkg-whitelist=pygame" // comma separated
+    ]
+```
+This whitelists the pygame extension, removing the linting error.
+(Information via https://stackoverflow.com/questions/50569453/why-does-it-say-that-module-pygame-has-no-init-member)
+
 
 ## Controls
 
