@@ -19,6 +19,7 @@ RED = (255, 0, 0)
 
 TANK_WIDTH = 95
 TANK_HEIGHT = 100
+TANK_SPEED = 8
 
 POWER_UP_WIDTH = 55
 POWER_UP_HEIGHT = 100
@@ -85,9 +86,9 @@ def game_loop():
             
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    x_change = -5
+                    x_change = -TANK_SPEED
                 elif event.key == pygame.K_RIGHT:
-                    x_change = 5
+                    x_change = TANK_SPEED
 
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
