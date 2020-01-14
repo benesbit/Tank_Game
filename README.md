@@ -3,10 +3,7 @@
 ## Some Quick Notes
 
 <ul>
-    <li>
-    This is a work in progress. I will push significant updates to master, but it is by no
-    means complete.
-    </li>
+    <li>This is a work in progress. I will push significant updates to master, but it is by no means complete.</li>
 
     <li>
     When viewing the code, your linter might freak out regarding pygame. It may say 
