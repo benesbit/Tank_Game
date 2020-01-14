@@ -17,8 +17,11 @@ BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 
-TANK_WIDTH = 45
-TANK_HEIGHT = 50
+TANK_WIDTH = 95
+TANK_HEIGHT = 100
+
+POWER_UP_WIDTH = 55
+POWER_UP_HEIGHT = 100
 
 GAME_DISPLAY = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
 pygame.display.set_caption('Tank Game')
