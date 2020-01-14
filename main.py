@@ -27,9 +27,7 @@ GAME_DISPLAY = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
 pygame.display.set_caption('Tank Game')
 CLOCK = pygame.time.Clock()
 
-IMAGE_TANK_PLAYER_ONE = \
-    pygame.transform.scale(pygame.image.load('images/tank_player_one.png'), \
-        (TANK_WIDTH, TANK_HEIGHT))
+IMAGE_TANK_PLAYER_ONE = src.tank.get_image_tank_player_one()
 
 IMAGE_POWER_UP_BOMB = src.power_up.get_image_power_up_bomb()
 
