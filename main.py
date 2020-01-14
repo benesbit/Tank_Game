@@ -7,6 +7,7 @@ import time
 import random
 import pygame
 import src.tank
+import src.power_up
 
 # Initialize pygame module
 pygame.init()
