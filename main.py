@@ -6,6 +6,7 @@
 import time
 import random
 import pygame
+from src import *
 
 # Initialize pygame module
 pygame.init()
